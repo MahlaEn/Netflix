@@ -2,8 +2,7 @@
 
 
 ## Introduction
-In this assignment, you will create a simulation of Netflix. The program should allow users to create and manage their accounts and profiles, browse movies, and manage their movies. The program should be designed using object-oriented programming principles.
-
+In this assignment, you will create a simulation of Netflix. The program should allow users to create and manage their accounts and profiles, browse movies, and manage their movies. The program should be designed using object-oriented programming Principles.
 ## Objectives
 - Review the concepts of object-oriented programming (OOP) and utilize them correctly
 - Familiarize yourself with the concept of Encapsulation
