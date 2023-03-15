@@ -16,16 +16,16 @@ public class Main {
     public static void showMenu(){
         while(!Exit) {
             System.out.println("ENTER YOUR CHOICE :\n" + "1* Login\n" + "4* Create account\n" + "3* Logout\n" + "4* Exit\n");
-            int cmd = in.nextInt();
-            if (cmd == 1) {//Login
+            String cmd = in.nextLine();
+            if (cmd.equals("1")) {//Login
                 login();
                 System.out.println("ENTER YOUR CHOICE :\n" + "1* Search by Title\n" +
                         "2* Search by Genre\n" + "3* Search by ReleaseYear\n" +
                         "4* Get recommendation\n" + "5* Add to favorites\n" + "6* View favorites");
-                cmd = in.nextInt();
-                if (cmd == 1) {//search title
+                cmd = in.nextLine();
+                if (cmd.equals("1")) {//search title
                     System.out.println("Enter a title :");
-                    String title = in.next();
+                    String title = in.nextLine();
                     ArrayList<TVShow> res = new ArrayList<>();
                     res=Netflix.searchByTitle(title);
                     if (res.size() == 0) {
@@ -40,7 +40,7 @@ public class Main {
                         }
                     }
                 }
-                else if (cmd == 2) {//search genre
+                else if (cmd.equals("2")) {//search genre
                     System.out.println("Enter a genre");
                     String genre = in.nextLine();
                     ArrayList<TVShow> res = Netflix.searchByGenre(genre);
@@ -56,9 +56,9 @@ public class Main {
                         }
                     }
                 }
-                else if (cmd == 3) {//search year
+                else if (cmd.equals("3")) {//search year
                     System.out.println("Enter a year");
-                    int year = in.nextInt();
+                    String year = in.nextLine();
                     ArrayList<TVShow> res = Netflix.searchByReleaseYear(year);
                     if (res.size() == 0) {
                         System.out.println("No TVShow or movie found:(");
@@ -72,7 +72,7 @@ public class Main {
                         }
                     }
                 }
-                else if (cmd == 4) {//recommendation
+                else if (cmd.equals("4")) {//recommendation
                     ArrayList<TVShow> recommended = Netflix.getCurUser().getRecommendations(Netflix);
                     System.out.println("Recommended TVShows and movies : ");
                     int cnt = 1;
@@ -81,23 +81,23 @@ public class Main {
                         cnt++;
                     }
                 }
-                else if (cmd == 5) {//add fav
+                else if (cmd.equals("5")) {//add fav
                     String title;
-                    title = in.next();
+                    title = in.nextLine();
                     for (TVShow fav : Netflix.searchByTitle(title)) {
                         Netflix.getCurUser().addToFavorites(fav);
                     }
                 }
-                else if (cmd == 6) {//fav list
+                else if (cmd.equals("6")) {//fav list
                     System.out.println("Your favourite TVShows and Movies :");
                     Netflix.getCurUser().viewFavorites();
                     System.out.println("ENTER YOUR CHOICE :\n" + "1* Search in favourites by Title\n" +
                             "2* Search in favourites by Genre\n" + "3* Search in favourites by ReleaseYear\n");
-                            cmd = in.nextInt();
+                            cmd = in.nextLine();
 
-                    if (cmd == 1) {//search title
+                    if (cmd.equals("1")) {//search title
                         System.out.println("Enter a title :");
-                        String title = in.next();
+                        String title = in.nextLine();
                         ArrayList<TVShow> res = new ArrayList<>();
                         res=Netflix.getCurUser().searchByTitle(title);
                         if (res.size() == 0) {
@@ -113,7 +113,7 @@ public class Main {
 
                         }
                     }
-                    else if (cmd == 2) {//search genre
+                    else if (cmd.equals("2")) {//search genre
                         System.out.println("Enter a genre");
                         String genre = in.nextLine();
                         ArrayList<TVShow> res = Netflix.getCurUser().searchByGenre(genre);
@@ -129,9 +129,9 @@ public class Main {
                             }
                         }
                     }
-                    else if (cmd == 3) {//search year
+                    else if (cmd.equals("3")) {//search year
                         System.out.println("Enter a year");
-                        int year = in.nextInt();
+                        String year = in.nextLine();
                         ArrayList<TVShow> res = Netflix.getCurUser().searchByReleaseYear(year);
                         if (res.size() == 0) {
                             System.out.println("No TVShow or movie found:(");
@@ -146,19 +146,19 @@ public class Main {
                         }
                     }
                 }
-                else if(cmd==7){//Exit
+                else if(cmd.equals("7")){//Exit
                     System.err.println("Good Bye👋🏻");
                     Exit=true;
                     return;
                 }
             }
-            else if(cmd==2){
+            else if(cmd.equals("2")){
                 createAccount();
             }
-            else if (cmd == 3) {//Logout
+            else if (cmd.equals("3")) {//Logout
                 logout();
             }
-            else if(cmd==4){//Exit
+            else if(cmd.equals("4")){//Exit
                 System.err.println("Good Bye👋🏻");
                 Exit=true;
                 return;
@@ -168,16 +168,16 @@ public class Main {
     public static void login(){
         String username,password;
         System.out.println("UserName :");
-        username=in.next();
+        username=in.nextLine();
         System.out.println("Password :");
-        password=in.next();
+        password=in.nextLine();
         if(!Netflix.login(username,password)){
             System.out.println("Enter 1 to create an account or 2 to exit application.");
-            int cmd=in.nextInt();
-            if(cmd==1){//Create account
+            String cmd=in.nextLine();
+            if(cmd.equals("1")){//Create account
                 createAccount();
             }
-            else if(cmd==2){//Exit
+            else if(cmd.equals("2")){//Exit
                 System.err.println("Good Bye👋🏻");
                 Exit=true;
                 return;
@@ -193,7 +193,7 @@ public class Main {
     }
     public static void createAccount(){
         System.out.println("Enter a username:");
-        String username = in.next();
+        String username = in.nextLine();
         boolean exist=false;
         for(User u:Netflix.getUsers()){
             if(u.getUsername().equals(username)){
@@ -206,22 +206,22 @@ public class Main {
             return;
         }
         System.out.println("Enter a password:");
-        String password = in.next();
+        String password = in.nextLine();
         Netflix.createAccount(username,password);
     }
 
     public static void initialize(){
         Netflix.createAccount("Mahla","0000");
         Netflix.login("Mahla","0000");
-        Netflix.addMovie("ScreamVI","Horror",2023,122,7.4,122);
-        Netflix.addMovie("Everything Everywhere All at Once","Action",2022,139,7.0,139);
-        Netflix.addMovie("The Whale","Drama",2022,117,7.8,117);
-        Netflix.addMovie("A man called Otto","Comedy , Drama",2022,126,7.5,126);
-        Netflix.addTVShow("The last of us","Action , Drama , Adventure",2023,50,9.0);
-        Netflix.addTVShow("Attack on Titan","Animation , Action , Adventure",2013,24,9.0);
-        Netflix.addTVShow("Game of Thrones","Action , Adventure , Drama",2011,57,9.2);
-        Netflix.addTVShow("Breaking bad","Drama",2008,49,9.5);
-        Netflix.addTVShow("The Office","Comedy",2005,22,9.0);
+        Netflix.addMovie("ScreamVI","Horror","2023",122,7.4,122);
+        Netflix.addMovie("Everything Everywhere All at Once","Action","2022",139,7.0,139);
+        Netflix.addMovie("The Whale","Drama","2022",117,7.8,117);
+        Netflix.addMovie("A man called Otto","Comedy , Drama","2022",126,7.5,126);
+        Netflix.addTVShow("The last of us","Action , Drama , Adventure","2023",50,9.0);
+        Netflix.addTVShow("Attack on Titan","Animation , Action , Adventure","2013",24,9.0);
+        Netflix.addTVShow("Game of Thrones","Action , Adventure , Drama","2011",57,9.2);
+        Netflix.addTVShow("Breaking bad","Drama","2008",49,9.5);
+        Netflix.addTVShow("The Office","Comedy","2005",22,9.0);
         TVShow show=Netflix.searchByTitle("Breaking bad").get(0);
         show.setCast(new ArrayList<>(Arrays.asList("Bryan Cranston","Aaron Paul")));
     }

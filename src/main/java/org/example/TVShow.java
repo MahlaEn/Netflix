@@ -4,10 +4,11 @@ import java.util.ArrayList;
 
 class TVShow {
     private String title, genre;
-    private int releaseYear, duration;
+    private String releaseYear;
+    private int duration;
     double rating;
     private ArrayList<String>cast;
-    public TVShow(String title,String genre,int releaseYear,int duration,double rating){
+    public TVShow(String title,String genre,String releaseYear,int duration,double rating){
         this.title=title;
         this.genre=genre;
         this.releaseYear=releaseYear;
@@ -21,7 +22,7 @@ class TVShow {
     public String getGenre() {
         return genre;
     }
-    public int getReleaseYear() {
+    public String getReleaseYear() {
         return releaseYear;
     }
     public int getDuration() {

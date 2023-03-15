@@ -58,7 +58,7 @@ class User {
         }
         return temp;
     }
-    public ArrayList<TVShow> searchByReleaseYear(int year) {
+    public ArrayList<TVShow> searchByReleaseYear(String year) {
         ArrayList<TVShow>temp = new ArrayList<>();
         for(TVShow cur : favoriteShows){
             if(cur.getReleaseYear()==year){

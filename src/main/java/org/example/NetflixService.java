@@ -32,14 +32,14 @@ class NetflixService {
     public void addTVShow(TVShow tvShow){
         tvShows.add(tvShow);
     }
-    public void addTVShow(String title, String genre,int releaseYear,int duration,double rating){
+    public void addTVShow(String title, String genre,String releaseYear,int duration,double rating){
         TVShow temp = new TVShow(title, genre, releaseYear, duration, rating);
         tvShows.add(temp);
     }
     public void addMovie(TVShow tvShow){
         movies.add(tvShow);
     }
-    public void addMovie(String title, String genre,int releaseYear,int duration,double rating, int length){
+    public void addMovie(String title, String genre,String releaseYear,int duration,double rating, int length){
         Movie temp = new Movie(title, genre, releaseYear, duration, rating , length);
         tvShows.add(temp);
     }
@@ -103,7 +103,7 @@ class NetflixService {
         return temp;
     }
 
-    public ArrayList<TVShow> searchByReleaseYear(int year) {
+    public ArrayList<TVShow> searchByReleaseYear(String year) {
         // Implement search by release year logic here
         ArrayList<TVShow>temp = new ArrayList<>();
         for(TVShow cur : tvShows){
