@@ -26,4 +26,5 @@
 9. After programming this assignment and done everything about that I wrote report and then added , commited and pushed that on my git.
 
 ## UML Diagram
-![UML]("https://upload.wikimedia.org/wikipedia/en/thumb/3/30/Java_programming_language_logo.svg/1200px-Java_programming_language_logo.svg.png" "UML Diagram")
+
+![UML](https://upload.wikimedia.org/wikipedia/en/thumb/3/30/Java_programming_language_logo.svg/1200px-Java_programming_language_logo.svg.png)
