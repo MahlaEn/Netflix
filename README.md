@@ -4,6 +4,7 @@
 ## Introduction
 - In this assignment i created simulation of Netflix. The program allow users to create and manage their accounts and profiles, browse movies, and manage their movies.
 - The program is designed using object-oriented programming Principles.
+
 ## Objectives
 - In this program i used the concepts of object-oriented programming (OOP) and utilize them correctly
 - I got familiar with the concept of Encapsulation
