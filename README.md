@@ -27,4 +27,5 @@
 
 ## UML Diagram
 
-![UML](https://drive.google.com/file/d/1aQvFKcRPVMrtoWbBuTumwPa_g8IIens5/view?usp=drivesdk)
+![UML](https://user-images.githubusercontent.com/77670851/225414525-4ff5711b-bbc2-4994-98d2-686b1a157174.jpg)
+
