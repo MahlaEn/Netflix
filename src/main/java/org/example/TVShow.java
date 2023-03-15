@@ -3,12 +3,13 @@ package org.example;
 import java.util.ArrayList;
 
 class TVShow {
-    private String title, genre;
+    private String title;
+    private String[] genre;
     private String releaseYear;
     private int duration;
     double rating;
     private ArrayList<String>cast;
-    public TVShow(String title,String genre,String releaseYear,int duration,double rating){
+    public TVShow(String title,String[] genre,String releaseYear,int duration,double rating){
         this.title=title;
         this.genre=genre;
         this.releaseYear=releaseYear;
@@ -19,7 +20,7 @@ class TVShow {
     public String getTitle() {
         return title;
     }
-    public String getGenre() {
+    public String[] getGenre() {
         return genre;
     }
     public String getReleaseYear() {

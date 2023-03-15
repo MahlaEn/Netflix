@@ -33,14 +33,16 @@ class NetflixService {
         tvShows.add(tvShow);
     }
     public void addTVShow(String title, String genre,String releaseYear,int duration,double rating){
-        TVShow temp = new TVShow(title, genre, releaseYear, duration, rating);
+        String[] genres = genre.split("-",-1);
+        TVShow temp = new TVShow(title, genres, releaseYear, duration, rating);
         tvShows.add(temp);
     }
     public void addMovie(TVShow tvShow){
         movies.add(tvShow);
     }
     public void addMovie(String title, String genre,String releaseYear,int duration,double rating, int length){
-        Movie temp = new Movie(title, genre, releaseYear, duration, rating , length);
+        String[] genres = genre.split("-",-1);
+        Movie temp = new Movie(title, genres, releaseYear, duration, rating , length);
         tvShows.add(temp);
     }
 
@@ -49,7 +51,6 @@ class NetflixService {
         newuser.setUsername(username);
         newuser.setPassword(password);
         users.add(newuser);
-        System.out.println("Account created successfully!=)");
     }
 
     public boolean login(String username, String password) {
@@ -88,11 +89,13 @@ class NetflixService {
     }
 
     public ArrayList<TVShow> searchByGenre(String genre) {
-        // Implement search by genre logic here
         ArrayList<TVShow>temp = new ArrayList<>();
         for(TVShow cur : tvShows){
-            if(cur.getGenre().equals(genre)){
-                temp.add(cur);
+            String[] genres=cur.getGenre();
+            for(String str:genres){
+                if(str.equals(genre)){
+                    temp.add(cur);
+                }
             }
         }
         for(TVShow cur : movies){
@@ -119,9 +122,12 @@ class NetflixService {
         return temp;
     }
     public static void ToString(TVShow tv,int num){
-        System.out.println( num + ") " + "Title: " + tv.getTitle() +
-                ", Genre: " + tv.getGenre() +
-                ", Release year: " + tv.getReleaseYear() +
+            System.out.print( num + ") " + "Title: " + tv.getTitle() +
+                ", Genre: " );
+                for(String temp : tv.getGenre()){
+                    System.out.print(temp + " , ");
+                }
+                System.out.println("Release year: " + tv.getReleaseYear() +
                 ", Duration: "+ tv.getDuration() +
                 ", Rating: "+ tv.getRating()
                 +"\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"

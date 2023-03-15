@@ -15,7 +15,7 @@ public class Main {
     }
     public static void showMenu(){
         while(!Exit) {
-            System.out.println("ENTER YOUR CHOICE :\n" + "1* Login\n" + "4* Create account\n" + "3* Logout\n" + "4* Exit\n");
+            System.out.println("ENTER YOUR CHOICE :\n" + "1* Login\n" + "2* Create account\n" + "3* Logout\n" + "4* Exit\n");
             String cmd = in.nextLine();
             if (cmd.equals("1")) {//Login
                 login();
@@ -154,6 +154,7 @@ public class Main {
             }
             else if(cmd.equals("2")){
                 createAccount();
+                System.out.println("Account created successfully!=)");
             }
             else if (cmd.equals("3")) {//Logout
                 logout();
@@ -213,17 +214,36 @@ public class Main {
     public static void initialize(){
         Netflix.createAccount("Mahla","0000");
         Netflix.login("Mahla","0000");
-        Netflix.addMovie("ScreamVI","Horror","2023",122,7.4,122);
+        Netflix.addMovie("Avengers Infinity war","Adventure-Action","2018",149,8.4,149);
+        Netflix.addMovie("Interstellar","Adventure-Drama","2014",169,8.6,169);
+        Netflix.addMovie("The Dark knight","Action-Drama","2008",152,9.0,152);
+        Netflix.addMovie("A man called Otto","Comedy-Drama","2022",126,7.5,126);
+        Netflix.addMovie("Inception","Action-Adventure","2010",148,8.8,148);
+        Netflix.addMovie("Your name","Animation-Drama","2016",106,8.4,106);
         Netflix.addMovie("Everything Everywhere All at Once","Action","2022",139,7.0,139);
         Netflix.addMovie("The Whale","Drama","2022",117,7.8,117);
-        Netflix.addMovie("A man called Otto","Comedy , Drama","2022",126,7.5,126);
-        Netflix.addTVShow("The last of us","Action , Drama , Adventure","2023",50,9.0);
-        Netflix.addTVShow("Attack on Titan","Animation , Action , Adventure","2013",24,9.0);
-        Netflix.addTVShow("Game of Thrones","Action , Adventure , Drama","2011",57,9.2);
+        Netflix.addMovie("The Godfather","Drama","1972",175,9.2,175);
+        Netflix.addMovie("ScreamVI","Horror","2023",122,7.4,122);
+        Netflix.addMovie("Spirited away","Animation-Adventure","2001",125,8.6,125);
+
+        Netflix.addTVShow("Harry Potter and the Prisoner of Azkaban","Adventure","2004",142,7.9);
+        Netflix.addTVShow("The last of us","Action-Drama-Adventure","2023",50,9.0);
+        Netflix.addTVShow("Attack on Titan","Animation-Action-Adventure","2013",24,9.0);
+        Netflix.addTVShow("Game of Thrones","Action-Adventure-Drama","2011",57,9.2);
         Netflix.addTVShow("Breaking bad","Drama","2008",49,9.5);
         Netflix.addTVShow("The Office","Comedy","2005",22,9.0);
+        Netflix.addTVShow("Supernatural","Drama-Horror","2005",44,8.4);
+        Netflix.addTVShow("Peaky Blinders","Drama","2013",60,8.8);
+        Netflix.addTVShow("Friends","Comedy-Romance","1994",22,8.9);
+        Netflix.addTVShow("Rick and Morty","Animation-Adventure-Comedy","2013",23,9.1);
+        Netflix.addTVShow("Sherlock","Drama-Mystery","2010",88,9.1);
+        Netflix.addTVShow("Death note","Animation-Drama","2006",23,9.0);
+
         TVShow show=Netflix.searchByTitle("Breaking bad").get(0);
         show.setCast(new ArrayList<>(Arrays.asList("Bryan Cranston","Aaron Paul")));
+        show=Netflix.searchByTitle("Harry Potter and the Prisoner of Azkaban").get(0);
+        show.setCast(new ArrayList<>(Arrays.asList("Daniel Radcliffe","Emma Watson","Rupert Grint")));
+
     }
 
 }
