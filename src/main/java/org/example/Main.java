@@ -1,6 +1,7 @@
 package org.example;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
@@ -221,5 +222,8 @@ public class Main {
         Netflix.addTVShow("Game of Thrones","Action , Adventure , Drama",2011,57,9.2);
         Netflix.addTVShow("Breaking bad","Drama",2008,49,9.5);
         Netflix.addTVShow("The Office","Comedy",2005,22,9.0);
+        TVShow show=Netflix.searchByTitle("Breaking bad").get(0);
+        show.setCast(new ArrayList<>(Arrays.asList("Bryan Cranston","Aaron Paul")));
     }
+
 }

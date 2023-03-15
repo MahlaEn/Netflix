@@ -10,7 +10,4 @@ class Movie extends TVShow {
     public int getLength() {
         return length;
     }
-    public void setLength(int length) {
-        this.length = length;
-    }
 }

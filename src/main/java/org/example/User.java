@@ -3,12 +3,6 @@ package org.example;
 import java.util.ArrayList;
 
 class User {
-    /*
-    * The user should contain username password.
-    * The user should contain an ArrayList of favorite shows and watch history.
-    * FUNCTION: the user should have a function to watch a show and add it to watch history.
-    *  *** NOTE: All search functions in user are for searching in favorite shows ***
-    */
     private String username;
     private String password;
     private ArrayList<TVShow>favoriteShows=new ArrayList<>() ;
@@ -79,7 +73,7 @@ class User {
     }
     public void viewFavorites() {
         if(favoriteShows.isEmpty()){
-            System.err.println("Is empty🥺.");
+            System.err.println("Is empty.");
             return;
         }
         int cnt=1;
@@ -90,19 +84,25 @@ class User {
     }
     public ArrayList<TVShow> getRecommendations(NetflixService netflix) {
         ArrayList<TVShow>recommended=new ArrayList<>();
-        for(TVShow cur : netflix.getTvShows()){
-            for(TVShow my : favoriteShows){
+        for(TVShow my : favoriteShows){
+            for(TVShow cur : netflix.getTvShows()){
                 if(cur.getGenre().equals(my.getGenre()) && !cur.getTitle().equals(my.getTitle())){
                     recommended.add(cur);
                 }
+                if(cur.getRating()>7 && !recommended.contains(cur) && !favoriteShows.contains(cur)){
+                    recommended.add(cur);
+                }
             }
-            if(cur.getRating()>7 && !recommended.contains(cur) && !favoriteShows.contains(cur)){
-                recommended.add(cur);
+            for(TVShow cur : netflix.getMovies()){
+                if(cur.getGenre().equals(my.getGenre()) && !cur.getTitle().equals(my.getTitle())){
+                    recommended.add(cur);
+                }
+                if(cur.getRating()>7 && !recommended.contains(cur) && !favoriteShows.contains(cur)){
+                    recommended.add(cur);
+                }
             }
         }
         return recommended;
     }
-
-
 }
 

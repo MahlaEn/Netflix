@@ -4,10 +4,6 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 class NetflixService {
-    /*
-     *The NetflixService should have an Arraylist of users, tv shows and movies.
-     *The NetflixService should have a User object which represents current user.
-     */
     private static User CurUser;
     private ArrayList<User>users=new ArrayList<>();
     private ArrayList<TVShow>tvShows=new ArrayList<>();
@@ -25,35 +21,24 @@ class NetflixService {
         return users;
     }
 
-    public void setUsers(ArrayList<User> users) {
-        this.users = users;
-    }
-
     public ArrayList<TVShow> getTvShows() {
         return tvShows;
-    }
-
-    public void setTvShows(ArrayList<TVShow> tvShows) {
-        this.tvShows = tvShows;
     }
 
     public ArrayList<TVShow> getMovies() {
         return movies;
     }
 
-    public void setMovies(ArrayList<TVShow> movies) {
-        this.movies = movies;
-    }
-
     public void addTVShow(TVShow tvShow){
         tvShows.add(tvShow);
-        // Implement add tv show logic here
     }
     public void addTVShow(String title, String genre,int releaseYear,int duration,double rating){
         TVShow temp = new TVShow(title, genre, releaseYear, duration, rating);
         tvShows.add(temp);
     }
-
+    public void addMovie(TVShow tvShow){
+        movies.add(tvShow);
+    }
     public void addMovie(String title, String genre,int releaseYear,int duration,double rating, int length){
         Movie temp = new Movie(title, genre, releaseYear, duration, rating , length);
         tvShows.add(temp);
@@ -139,7 +124,7 @@ class NetflixService {
                 ", Release year: " + tv.getReleaseYear() +
                 ", Duration: "+ tv.getDuration() +
                 ", Rating: "+ tv.getRating()
-                +"\n___________________________________"
+                +"\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
         );
     }
 }
