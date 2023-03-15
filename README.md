@@ -24,3 +24,6 @@
 7. Users can search a movie or TVShow by the title,genre or releaseYear.
 8. Users also can add a movie or TVShow to their favorites.
 9. After programming this assignment and done everything about that I wrote report and then added , commited and pushed that on my git.
+
+## UML Diagram
+![UML]("C:\Users\USER\OneDrive\Desktop\UML.png" "UML Diagram")
